@@ -11,11 +11,9 @@ import Section from "@components/Section.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SOCIALS } from "@config";
 
-const title = "Institut d'Etudes Avancées de Paris"
-const description = "L’institut d’études avancées de Paris est un centre de recherche en sciences humaines et sociales, humanités et (neuro)sciences cognitives."
-const posts = await getCollection("papers");
-const sortedPosts = getSortedPosts(posts);
-const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
+const title = "Institut d'Etudes Avancées de Paris";
+const description =
+  "L’institut d’études avancées de Paris est un centre de recherche en sciences humaines et sociales, humanités et (neuro)sciences cognitives.";
 
 const socialCount = SOCIALS.filter(social => social.active).length;
 ---
@@ -42,9 +40,10 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         {
           // only display if at least one social link is enabled
           socialCount > 0 && (
-            
+            <>
               <div class="social-links">Nos réseaux sociaux :</div>
               <Socials />
+            </>
           )
         }
         <a
@@ -65,35 +64,29 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       </div>
     </section>
     <div>
-      <Section 
-        title="Pages" 
-        collection="pages"
-        more="Toutes les pages"/>
+      <Section title="Pages" collection="pages" more="Toutes les pages" />
       <Hr />
-      <Section 
-        title="Evénements" 
-        collection="events" 
-        more="Tous les événements"/>
+      <Section
+        title="Evénements"
+        collection="events"
+        more="Tous les événements"
+      />
       <Hr />
-      <Section 
-        title="Publications" 
-        collection="publications" 
-        more="Toutes les publications"/>
+      <Section
+        title="Publications"
+        collection="publications"
+        more="Toutes les publications"
+      />
       <Hr />
-      <Section 
-        title="Résidences" 
+      <Section
+        title="Résidences"
         collection="scholars"
-        more="Toutes les résidences"/>
+        more="Toutes les résidences"
+      />
       <Hr />
-      <Section 
-        title="Médias" 
-        collection="medias"
-        more="Tous les médias"/>
+      <Section title="Médias" collection="medias" more="Tous les médias" />
       <Hr />
-      <Section 
-        title="Projets" 
-        collection="projects"
-        more="Tous les projets"/>
+      <Section title="Projets" collection="projects" more="Tous les projets" />
     </div>
   </main>
   <Footer />
@@ -102,13 +95,13 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 <style>
   /* ===== Hero Section ===== */
   #hero {
-    @apply py-2 mx-auto bg-iea-brown font-semibold;
+    @apply mx-auto bg-iea-brown py-2 font-semibold;
   }
   #hero h1 {
     @apply inline-block text-xl font-bold sm:my-4 sm:text-2xl;
   }
   #hero .rss-link {
-    @apply mt-2 ml-2
+    @apply mt-2 ml-2;
   }
   #hero .rss-icon {
     @apply mb-2 h-6 w-6 scale-110 hover:fill-skin-accent sm:mb-3 sm:scale-125;

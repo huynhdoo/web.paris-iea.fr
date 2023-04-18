@@ -1,5 +1,23 @@
 import { z, defineCollection } from "astro:content";
 
+/***********/
+/* SCHEMAS */
+/***********/
+
+export const searchSchema = z
+  .object({
+    title: z.string(),
+    pubDatetime: z.date(),
+    description: z.string(),
+    collection: z.string(),
+  })
+  .strict();
+
+export type searchFrontmatter = z.infer<typeof searchSchema>;
+
+/***************/
+/* COLLECTIONS */
+/***************/
 const papersCollection = defineCollection({
   schema: z.object({
     title: z.string(),
@@ -11,7 +29,7 @@ const papersCollection = defineCollection({
     tags: z.array(z.string()).default(["others"]),
     ogImage: z.string().optional(),
     description: z.string(),
-  })
+  }),
 });
 
 const publicationsCollection = defineCollection({
@@ -21,8 +39,9 @@ const publicationsCollection = defineCollection({
     editor: z.string(),
     year: z.number(),
     pages: z.number(),
-    url: z.string()
-  })
+    url: z.string(),
+    draft: z.boolean().optional(),
+  }),
 });
 
 const scholarsCollection = defineCollection({
@@ -30,8 +49,9 @@ const scholarsCollection = defineCollection({
     firstname: z.string(),
     lastname: z.string(),
     title: z.string(),
-    institution: z.string()
-  })
+    institution: z.string(),
+    draft: z.boolean().optional(),
+  }),
 });
 
 const projectsCollection = defineCollection({
@@ -41,7 +61,8 @@ const projectsCollection = defineCollection({
     end: z.string(),
     disciplines: z.array(z.string()),
     members: z.array(z.string()),
-  })
+    draft: z.boolean().optional(),
+  }),
 });
 
 const eventsCollection = defineCollection({
@@ -51,7 +72,8 @@ const eventsCollection = defineCollection({
     location: z.string(),
     contact: z.string(),
     registration: z.boolean(),
-  })
+    draft: z.boolean().optional(),
+  }),
 });
 
 const mediasCollection = defineCollection({
@@ -62,7 +84,8 @@ const mediasCollection = defineCollection({
     type: z.string(),
     url: z.string(),
     links: z.array(z.string()),
-  })
+    draft: z.boolean().optional(),
+  }),
 });
 
 export const collections = {

@@ -14,11 +14,11 @@ import type { CollectionEntry } from "astro:content";
 export interface Props {
   pageNum: number;
   totalPages: number;
-  posts: CollectionEntry<"blog">[];
+  posts: CollectionEntry<"papers">[];
 }
 
 const { pageNum, totalPages, collection, title } = Astro.props;
-const posts = await getCollection(collection)
+const posts = await getCollection(collection);
 const prev = pageNum > 1 ? "" : "disabled";
 const next = pageNum < totalPages ? "" : "disabled";
 ---
