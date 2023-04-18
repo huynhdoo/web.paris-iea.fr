@@ -6,19 +6,19 @@ import Footer from "@components/Footer.astro";
 import LinkButton from "@components/LinkButton.astro";
 ---
 
-<Layout title={`404 Not Found | ${SITE.title}`}>
+<Layout title={`404 | ${SITE.title}`}>
   <Header />
 
   <main id="main-content">
     <div class="not-found-wrapper">
       <h1 aria-label="404 Not Found">404</h1>
       <span aria-hidden="true">¯\_(ツ)_/¯</span>
-      <p>Page Not Found</p>
+      <p>Ceci est une page inconnue</p>
       <LinkButton
         href="/"
         className="my-6 underline decoration-dashed underline-offset-8 text-lg"
       >
-        Go back home
+        Retour
       </LinkButton>
     </div>
   </main>

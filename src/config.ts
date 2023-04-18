@@ -1,10 +1,10 @@
 import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
-  website: "https://astro-paper.pages.dev/",
-  author: "Sat Naing",
-  desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
-  title: "AstroPaper",
+  website: "https://paris-iea.fr/",
+  author: "Paris IEA",
+  desc: "L’institut d’études avancées de Paris est un centre de recherche en sciences humaines et sociales, humanités et (neuro)sciences cognitives",
+  title: "Institut d'Etudes Avancées de Paris",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerPage: 3,
@@ -141,3 +141,5 @@ export const SOCIALS: SocialObjects = [
     active: false,
   },
 ];
+
+export const PAPERS = ['events', 'publications', 'pages']

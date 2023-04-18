@@ -31,6 +31,7 @@ const { activeNav } = Astro.props;
           )
         }
       </a>
+      <br/>
       <nav id="nav-menu">
         <button
           class="hamburger-menu focus-outline"
@@ -47,7 +48,7 @@ const { activeNav } = Astro.props;
         <ul id="menu-items" class="display-none sm:flex">
           <li>
             <a href="/posts" class={activeNav === "posts" ? "active" : ""}>
-              Posts
+              Papiers
             </a>
           </li>
           <li>
@@ -57,7 +58,7 @@ const { activeNav } = Astro.props;
           </li>
           <li>
             <a href="/about" class={activeNav === "about" ? "active" : ""}>
-              About
+              A propos
             </a>
           </li>
           <li>

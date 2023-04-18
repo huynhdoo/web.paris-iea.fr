@@ -1,6 +1,6 @@
 import Fuse from "fuse.js";
 import { useEffect, useRef, useState } from "react";
-import Card from "@components/Card";
+import Card from "@components/Card.astro";
 import slugify from "@utils/slugify";
 import type { BlogFrontmatter } from "@content/_schemas";
 
