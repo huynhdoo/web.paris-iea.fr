@@ -11,7 +11,7 @@ import Section from "@components/Section.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SOCIALS } from "@config";
 
-const title = "IEA de Paris"
+const title = "Institut d'Etudes Avancées de Paris"
 const description = "L’institut d’études avancées de Paris est un centre de recherche en sciences humaines et sociales, humanités et (neuro)sciences cognitives."
 const posts = await getCollection("papers");
 const sortedPosts = getSortedPosts(posts);
@@ -24,6 +24,9 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <Header />
   <main id="main-content">
     <section id="hero">
+      <h1>
+        {title}
+      </h1>
       <p>
         {description}
       </p>
@@ -61,19 +64,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         </a>
       </div>
     </section>
-
-    <Hr />
-
-    <div class="pt-4">
-      {
-        featuredPosts.length > 0 && (
-          <Section 
-            title="A la une" 
-            papers={featuredPosts} 
-          />
-        )
-      }
-      <Hr />
+    <div>
       <Section 
         title="Papiers" 
         collection="papers" 
@@ -108,7 +99,6 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         title="Projets" 
         collection="projects"
         more="Tous les projets"/>
-      <Hr />
     </div>
   </main>
   <Footer />
@@ -117,10 +107,10 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 <style>
   /* ===== Hero Section ===== */
   #hero {
-    @apply pt-8 pb-6 bg-iea-brown font-semibold;
+    @apply py-2 mx-auto bg-iea-brown font-semibold;
   }
   #hero h1 {
-    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
+    @apply inline-block text-xl font-bold sm:my-4 sm:text-2xl;
   }
   #hero .rss-link {
     @apply mt-2 ml-2

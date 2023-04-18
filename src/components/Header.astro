@@ -5,6 +5,7 @@ import LinkButton from "./LinkButton.astro";
 
 import logoPNG from "/assets/logo.png";
 import logoSVG from "/assets/logo.svg";
+import logoJPEG from "/assets/iea-paris-logo.jpeg";
 
 export interface Props {
   activeNav?: "posts" | "tags" | "about" | "search";
@@ -17,15 +18,14 @@ const { activeNav } = Astro.props;
   <a id="skip-to-content" href="#main-content">Skip to content</a>
   <div class="nav-container">
     <div class="top-nav-wrap">
-      <a href="/" class="logo">
+      <a href="/">
         {
           LOGO_IMAGE.enable ? (
             <img
-              src={LOGO_IMAGE.svg ? logoSVG : logoPNG}
-              alt="AstroPaper Logo"
-              width={LOGO_IMAGE.width}
-              height={LOGO_IMAGE.height}
-            />
+              src={LOGO_IMAGE.svg ? logoSVG : logoJPEG}
+              alt="Paris IEA Logo"
+              class="logo"
+              />
           ) : (
             SITE.title
           )
@@ -47,18 +47,23 @@ const { activeNav } = Astro.props;
         </button>
         <ul id="menu-items" class="display-none sm:flex">
           <li>
-            <a href="/posts" class={activeNav === "posts" ? "active" : ""}>
-              Papiers
-            </a>
-          </li>
-          <li>
-            <a href="/tags" class={activeNav === "tags" ? "active" : ""}>
-              Tags
-            </a>
-          </li>
-          <li>
             <a href="/about" class={activeNav === "about" ? "active" : ""}>
-              A propos
+              L'institut
+            </a>
+          </li>
+          <li>
+            <a href="/projects" class={activeNav === "posts" ? "active" : ""}>
+              Projets
+            </a>
+          </li>
+          <li>
+            <a href="/events" class={activeNav === "posts" ? "active" : ""}>
+              Evénements
+            </a>
+          </li>
+          <li>
+            <a href="/publications" class={activeNav === "posts" ? "active" : ""}>
+              Publications
             </a>
           </li>
           <li>
@@ -117,7 +122,7 @@ const { activeNav } = Astro.props;
     @apply relative flex w-full items-start justify-between p-4 sm:items-center sm:py-8;
   }
   .logo {
-    @apply absolute py-1 text-xl font-semibold sm:static sm:text-2xl;
+    @apply absolute text-xl font-semibold sm:static sm:text-2xl w-10 sm:w-20;
   }
   .hamburger-menu {
     @apply self-end p-2 sm:hidden;
@@ -136,7 +141,7 @@ const { activeNav } = Astro.props;
     @apply col-span-2 flex items-center justify-center;
   }
   nav ul li a {
-    @apply w-full px-4 py-3 text-center font-medium hover:text-skin-accent sm:my-0 sm:px-2 sm:py-1;
+    @apply w-full px-4 py-3 text-center font-medium hover:text-skin-accent hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4 sm:my-0 sm:px-2 sm:py-1;
   }
   nav ul li:nth-child(4) a {
     @apply w-auto;
@@ -146,7 +151,7 @@ const { activeNav } = Astro.props;
     @apply col-span-1;
   }
   nav a.active {
-    @apply underline decoration-wavy decoration-2 underline-offset-4;
+    @apply underline decoration-solid decoration-2 underline-offset-4;
   }
   nav a.active svg {
     @apply fill-skin-accent;

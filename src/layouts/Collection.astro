@@ -7,6 +7,8 @@ import Footer from "@components/Footer.astro";
 import Card from "@components/Card.astro";
 import LinkButton from "@components/LinkButton.astro";
 import slugify from "@utils/slugify";
+
+import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
 export interface Props {
@@ -15,19 +17,19 @@ export interface Props {
   posts: CollectionEntry<"blog">[];
 }
 
-const { pageNum, totalPages, posts } = Astro.props;
-
+const { pageNum, totalPages, collection, title } = Astro.props;
+const posts = await getCollection(collection)
 const prev = pageNum > 1 ? "" : "disabled";
 const next = pageNum < totalPages ? "" : "disabled";
 ---
 
-<Layout title={`Papiers | ${SITE.title}`}>
-  <Header activeNav="posts" />
-  <Main pageTitle="Papiers" pageDesc="Papiers publiés">
+<Layout title={`${title} | ${SITE.title}`}>
+  <Header activeNav={collection} />
+  <Main pageTitle={title} pageDesc="Documents publiés">
     <ul>
       {
         posts.map(({ data }) => (
-          <Card href={`/papers/${slugify(data)}`} frontmatter={data} />
+          <Card href={`/${collection}/${slugify(data)}`} frontmatter={data} />
         ))
       }
     </ul>
