@@ -8,8 +8,6 @@ import Card from "@components/Card.astro";
 import LinkButton from "@components/LinkButton.astro";
 import slugify from "@utils/slugify";
 
-import { getCollection } from "astro:content";
-
 const { pageNum, totalPages, posts, title, collection } = Astro.props;
 const prev = pageNum > 1 ? "" : "disabled";
 const next = pageNum < totalPages ? "" : "disabled";
@@ -17,7 +15,7 @@ const next = pageNum < totalPages ? "" : "disabled";
 
 <Layout title={`${title} | ${SITE.title}`}>
   <Header activeNav={collection} />
-  <Main pageTitle={title} pageDesc="Projets publiés">
+  <Main pageTitle={title} pageDesc="Résidences accueillies">
     <ul>
       {
         posts.map(({ data }) => (
@@ -32,7 +30,7 @@ const next = pageNum < totalPages ? "" : "disabled";
       <nav class="pagination-wrapper" aria-label="Pagination">
         <LinkButton
           disabled={prev === "disabled"}
-          href={`/${collection}/${pageNum - 1 !== 1 ? "/" + (pageNum - 1) : ""}`}
+          href={`/${collection}${pageNum - 1 !== 1 ? "/" + (pageNum - 1) : ""}`}
           className={`mr-4 select-none ${prev}`}
           ariaLabel="Previous"
         >
@@ -43,7 +41,7 @@ const next = pageNum < totalPages ? "" : "disabled";
         </LinkButton>
         <LinkButton
           disabled={next === "disabled"}
-          href={`/${collection}/${pageNum + 1}`}
+          href={`/${collection}${pageNum + 1}`}
           className={`ml-4 select-none ${next}`}
           ariaLabel="Next"
         >
