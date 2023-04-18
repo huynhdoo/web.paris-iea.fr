@@ -1,0 +1,22 @@
+---
+import { SITE } from "@config";
+import List from "@layouts/medias/List.astro";
+import getSortedPosts from "@utils/getSortedPosts";
+import getPageNumbers from "@utils/getPageNumbers";
+
+import { getCollection } from "astro:content";
+
+const collection = "medias"
+const title = "Les médias"
+const posts = await getCollection(collection);
+const sortedPosts = getSortedPosts(posts);
+const totalPages = getPageNumbers(sortedPosts.length);
+const paginatedPosts = sortedPosts.slice(0, SITE.postPerPage);
+---
+<List 
+    posts={paginatedPosts} 
+    title={title} 
+    collection={collection} 
+    pageNum={1} 
+    totalPages={totalPages.length} 
+/>
