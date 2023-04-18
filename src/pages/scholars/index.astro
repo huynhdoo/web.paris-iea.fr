@@ -1,13 +1,13 @@
 ---
 import { SITE } from "@config";
-import List from "@layouts/events/List.astro";
+import List from "@layouts/scholars/List.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import getPageNumbers from "@utils/getPageNumbers";
 
 import { getCollection } from "astro:content";
 
-const collection = "events"
-const title = "Les évènements"
+const collection = "scholars"
+const title = "Les résidences"
 const posts = await getCollection(collection);
 const sortedPosts = getSortedPosts(posts);
 const totalPages = getPageNumbers(sortedPosts.length);

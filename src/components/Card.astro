@@ -2,7 +2,7 @@
 import Datetime from "./Datetime";
 
 const { href, frontmatter, secHeading } = Astro.props
-const { title, pubDatetime, description, firstname, lastname } = frontmatter;
+const { title, pubDatetime, description } = frontmatter;
 ---
 <li class="my-6">
   <a
@@ -11,11 +11,11 @@ const { title, pubDatetime, description, firstname, lastname } = frontmatter;
   >
     {secHeading ? (
       <h2 class="text-lg font-medium decoration-dashed hover:underline">
-        {title} {firstname} {lastname}
+        {title}
       </h2>
     ) : (
       <h3 class="text-lg font-medium decoration-dashed hover:underline">
-        {title} {firstname} {lastname}
+        {title}
       </h3>
     )}
   </a>
