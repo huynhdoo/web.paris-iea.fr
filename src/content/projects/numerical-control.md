@@ -5,7 +5,7 @@ end: '30 juin 2023'
 disciplines: ["Sciences de l'information et de la communication"]
 members: ["anders-albrechtslund"]
 ---
-# Projet de recherche
+## Projet de recherche
 La surveillance est omniprésente dans les sociétés contemporaines, à cause notamment de l'accumulation des données et de l'intelligence artificielle (IA) sous la forme de décisions algorithmiques, de systèmes automatisés de reconnaissance faciale, de dispositifs de suivi et de détection, et de technologies de soins de santé avancées. Il est essentiel de bien comprendre l'impact de cette surveillance basée sur les données sur la vie quotidienne.
 
 La surveillance n'est pas seulement utilisée à l'égard d'individus et de groupes sociaux par des institutions publiques et des sociétés privées, mais elle est également exercée régulièrement par et pour des individus dans leur vie privée. Les technologies de réseau permettent la surveillance interpersonnelle de nombreuses manières et à des fins très diverses. Cela signifie que le fait de considérer la surveillance comme imposée de l'extérieur et hiérarchisée n'offre qu'une perspective limitée sur les façons involontaires et désordonnées dont la surveillance affecte le monde social, tout en sous-estimant le rôle des actions humaines dans la réalisation, l'influence et l'expérience de la surveillance. Nous ne sommes pas seulement des objets, mais aussi des sujets actifs de la surveillance.
