@@ -1,7 +1,7 @@
 ---
 import { CollectionEntry, getCollection } from "astro:content";
-import Posts from "@layouts/Posts.astro";
-import PostDetails from "@layouts/PostDetails.astro";
+import List from "@layouts/papers/List.astro";
+import Details from "@layouts/papers/Details.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import getPageNumbers from "@utils/getPageNumbers";
 import slugify from "@utils/slugify";
@@ -29,10 +29,10 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 const { post } = Astro.props;
 
-const posts = await getCollection("blog");
-
+const title = "Les papiers"
+const collection = "papers"
+const posts = await getCollection(collection);
 const sortedPosts = getSortedPosts(posts);
-
 const totalPages = getPageNumbers(sortedPosts.length);
 
 const currentPage =
@@ -47,12 +47,14 @@ const paginatedPosts = sortedPosts.slice(startPost, lastPost);
 
 {
   post ? (
-    <PostDetails post={post} />
+    <Details post={post} />
   ) : (
-    <Posts
-      posts={paginatedPosts}
-      pageNum={currentPage}
-      totalPages={totalPages.length}
+    <List 
+      posts={paginatedPosts} 
+      title={title} 
+      collection={collection} 
+      pageNum={1} 
+      totalPages={totalPages.length} 
     />
   )
 }

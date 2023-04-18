@@ -2,14 +2,16 @@
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
+import Tag from "@components/Tag.astro";
+import Datetime from "@components/Datetime";
 import type { CollectionEntry } from "astro:content";
 
 export interface Props {
-  post: CollectionEntry<"blog">;
+  post: CollectionEntry<"papers">;
 }
 
 const { post } = Astro.props;
-const { title, author, description, ogImage } = post.data;
+const { title, author, description, ogImage, pubDatetime, tags } = post.data;
 const { Content } = await post.render();
 
 const ogUrl = new URL(ogImage ? ogImage : `${title}.png`, Astro.url.origin)
@@ -31,11 +33,16 @@ const ogUrl = new URL(ogImage ? ogImage : `${title}.png`, Astro.url.origin)
     </button>
   </div>
   <main id="main-content">
-    <h2 class="mt-4">Projet</h2>
+    <h2>Papier</h2>
     <h1 class="post-title">{title}</h1>
+    <Datetime datetime={pubDatetime} size="lg" className="my-2" />
     <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
       <Content />
     </article>
+
+    <ul class="tags-container">
+      {tags.map(tag => <Tag name={tag} />)}
+    </ul>
   </main>
   <Footer />
 </Layout>
