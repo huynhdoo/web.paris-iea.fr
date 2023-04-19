@@ -3,7 +3,7 @@ import { LOGO_IMAGE, SITE } from "@config";
 import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
 
-import logoPNG from "/assets/logo.png";
+import logoPNG from "/assets/Logo_IEA_gold_COMPLET.png";
 import logoSVG from "/assets/logo.svg";
 import logoJPEG from "/assets/iea-paris-logo.jpeg";
 
@@ -22,16 +22,16 @@ const { activeNav } = Astro.props;
         {
           LOGO_IMAGE.enable ? (
             <img
-              src={LOGO_IMAGE.svg ? logoSVG : logoJPEG}
+              src={LOGO_IMAGE.svg ? logoSVG : logoPNG}
               alt="Paris IEA Logo"
               class="logo"
-              />
+            />
           ) : (
             SITE.title
           )
         }
       </a>
-      <br/>
+      <br />
       <nav id="nav-menu">
         <button
           class="hamburger-menu focus-outline"
@@ -47,7 +47,7 @@ const { activeNav } = Astro.props;
         </button>
         <ul id="menu-items" class="display-none sm:flex">
           <li>
-            <a href="/about" class={activeNav === "about" ? "active" : ""}>
+            <a href="/pages" class={activeNav === "about" ? "active" : ""}>
               L'institut
             </a>
           </li>
@@ -62,7 +62,10 @@ const { activeNav } = Astro.props;
             </a>
           </li>
           <li>
-            <a href="/publications" class={activeNav === "posts" ? "active" : ""}>
+            <a
+              href="/publications"
+              class={activeNav === "posts" ? "active" : ""}
+            >
               Publications
             </a>
           </li>
@@ -122,7 +125,7 @@ const { activeNav } = Astro.props;
     @apply relative flex w-full items-start justify-between p-4 sm:items-center sm:py-8;
   }
   .logo {
-    @apply absolute text-xl font-semibold sm:static sm:text-2xl w-10 sm:w-20;
+    @apply absolute w-14 text-xl font-semibold sm:static sm:text-2xl md:w-32;
   }
   .hamburger-menu {
     @apply self-end p-2 sm:hidden;
