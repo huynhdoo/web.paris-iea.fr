@@ -6,17 +6,18 @@ import getPageNumbers from "@utils/getPageNumbers";
 
 import { getCollection } from "astro:content";
 
-const collection = "scholars"
-const title = "Les résidences"
+const collection = "scholars";
+const title = "Les résidences";
 const posts = await getCollection(collection);
 const sortedPosts = getSortedPosts(posts);
 const totalPages = getPageNumbers(sortedPosts.length);
 const paginatedPosts = sortedPosts.slice(0, SITE.postPerPage);
 ---
-<List 
-    posts={paginatedPosts} 
-    title={title} 
-    collection={collection} 
-    pageNum={1} 
-    totalPages={totalPages.length} 
+
+<List
+  posts={paginatedPosts}
+  title={title}
+  collection={collection}
+  pageNum={1}
+  totalPages={totalPages.length}
 />
