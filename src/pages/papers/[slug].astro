@@ -29,8 +29,8 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 const { post } = Astro.props;
 
-const title = "Les papiers"
-const collection = "papers"
+const title = "Les papiers";
+const collection = "papers";
 const posts = await getCollection(collection);
 const sortedPosts = getSortedPosts(posts);
 const totalPages = getPageNumbers(sortedPosts.length);
@@ -49,12 +49,12 @@ const paginatedPosts = sortedPosts.slice(startPost, lastPost);
   post ? (
     <Details post={post} />
   ) : (
-    <List 
-      posts={paginatedPosts} 
-      title={title} 
-      collection={collection} 
-      pageNum={1} 
-      totalPages={totalPages.length} 
+    <List
+      posts={paginatedPosts}
+      title={title}
+      collection={collection}
+      pageNum={currentPage}
+      totalPages={totalPages.length}
     />
   )
 }
