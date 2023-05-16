@@ -3,47 +3,51 @@ import { getCollection } from "astro:content";
 import LinkButton from "@components/LinkButton.astro";
 import Card from "@components/Card.astro";
 import slugify from "@utils/slugify";
+import { Icon } from "astro-icon";
 
-const { title, collection, more} = Astro.props;
+const { icon, title, collection, more } = Astro.props;
 const papers = await getCollection(collection);
 ---
+
 <section>
-    <h2>{title}</h2>
-    <ul>
-        {
-        papers.map(
-            ({ data }, index) =>
-            index < 3 && (
-                <Card
-                    href={`/${collection}/${slugify(data)}`}
-                    frontmatter={data}
-                    secHeading={false}
-                />
-            )
-        )
-        }
-    </ul>
-    {more && 
-        <div class="all-papers">
-            <LinkButton href={`/${collection}`}>
-            {more}
-            <svg xmlns="http://www.w3.org/2000/svg"
-                ><path
-                d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
-                ></path>
-            </svg>
-            </LinkButton>
-        </div>
-    }    
+  <h2>
+    <Icon pack="carbon" name={icon} class="mb-1" />&nbsp;{title}
+  </h2>
+  <ul>
+    {
+      papers.map(
+        ({ data }, index) =>
+          index < 3 && (
+            <Card
+              href={`/${collection}/${slugify(data)}`}
+              frontmatter={data}
+              secHeading={false}
+            />
+          )
+      )
+    }
+  </ul>
+  {
+    more && (
+      <div class="all-papers">
+        <LinkButton href={`/${collection}`}>
+          {more}
+          <svg xmlns="http://www.w3.org/2000/svg">
+            <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z" />
+          </svg>
+        </LinkButton>
+      </div>
+    )
+  }
 </section>
 <style>
-    section {
-        @apply pt-12 pb-6;
-    }
-    h2 {
-        @apply text-2xl font-semibold tracking-wide;
-    }
-    .all-papers {
-        @apply my-8 text-center;
-    }
+  section {
+    @apply pt-12 pb-6;
+  }
+  h2 {
+    @apply text-2xl font-semibold tracking-wide;
+  }
+  .all-papers {
+    @apply my-8 text-center;
+  }
 </style>

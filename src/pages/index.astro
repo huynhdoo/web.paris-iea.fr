@@ -1,5 +1,4 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
@@ -8,7 +7,6 @@ import Hr from "@components/Hr.astro";
 import Socials from "@components/Socials.astro";
 import Section from "@components/Section.astro";
 
-import getSortedPosts from "@utils/getSortedPosts";
 import { SOCIALS } from "@config";
 
 const title = "Institut d'Etudes Avancées de Paris";
@@ -21,7 +19,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 <Layout>
   <Header />
   <main id="main-content">
-    <section id="hero">
+    <section id="hero" class="rounded-lg">
       <h1>
         {title}
       </h1>
@@ -65,26 +63,39 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     </section>
     <div>
       <Section
+        icon="event-schedule"
         title="Evénements"
         collection="events"
         more="Tous les événements"
       />
       <Hr />
       <Section
+        icon="document"
         title="Publications"
         collection="publications"
         more="Toutes les publications"
       />
       <Hr />
       <Section
+        icon="gateway-user-access"
         title="Résidences"
         collection="scholars"
         more="Toutes les résidences"
       />
       <Hr />
-      <Section title="Médias" collection="medias" more="Tous les médias" />
+      <Section
+        icon="media-library"
+        title="Médias"
+        collection="medias"
+        more="Tous les médias"
+      />
       <Hr />
-      <Section title="Projets" collection="projects" more="Tous les projets" />
+      <Section
+        icon="progress-bar"
+        title="Projets"
+        collection="projects"
+        more="Tous les projets"
+      />
     </div>
   </main>
   <Footer />
@@ -93,7 +104,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 <style>
   /* ===== Hero Section ===== */
   #hero {
-    @apply mx-auto bg-iea-brown py-2 font-semibold;
+    @apply m-4 bg-iea-brown py-2 font-semibold md:mx-auto;
   }
   #hero h1 {
     @apply inline-block text-xl font-bold sm:my-4 sm:text-2xl;
