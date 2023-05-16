@@ -22,14 +22,7 @@
     --color-border: #b48a52;
     --color-background: #b48a52;
   }
-  #sun-svg,
-  html[data-theme="dark"] #moon-svg {
-    display: none;
-  }
-  #moon-svg,
-  html[data-theme="dark"] #sun-svg {
-    display: block;
-  }
+
   body {
     @apply flex min-h-screen flex-col bg-skin-fill font-mono text-skin-base 
     selection:bg-skin-accent selection:bg-opacity-70 selection:text-skin-inverted;
@@ -60,8 +53,6 @@
     prose-blockquote:border-opacity-50 prose-blockquote:opacity-80
     prose-figcaption:!text-skin-base prose-figcaption:opacity-70
     prose-strong:!text-skin-base
-
-    
     prose-code:rounded prose-code:bg-skin-card 
     prose-code:bg-opacity-75 prose-code:p-1 prose-code:!text-skin-base 
     prose-code:before:!content-[''] prose-code:after:!content-['']
