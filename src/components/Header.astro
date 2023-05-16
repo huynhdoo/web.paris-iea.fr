@@ -8,7 +8,7 @@ import logoSVG from "/assets/logo.svg";
 import logoJPEG from "/assets/iea-paris-logo.jpeg";
 
 export interface Props {
-  activeNav?: "posts" | "tags" | "about" | "search";
+  activeNav?: "posts" | "tags" | "about";
 }
 
 const { activeNav } = Astro.props;
@@ -35,9 +35,7 @@ const { activeNav } = Astro.props;
           <li>
             <LinkButton
               href="/search"
-              className={`focus-outline p-3 sm:p-1 ${
-                activeNav === "search" ? "active" : ""
-              }`}
+              className="focus-outline p-3 sm:p-1"
               ariaLabel="search"
               title="Search"
             >
@@ -78,14 +76,17 @@ const { activeNav } = Astro.props;
               aria-controls="menu-items"
               id="menu"
             >
-              <div class="icon-container flex">
+              <div class="icon-container z-10 flex">
                 <div id="first-line"></div>
                 <div id="second-line"></div>
                 <div id="third-line"></div>
               </div>
               Navigation
             </button>
-            <ul id="menu-items" class="display-none sm:flex">
+            <ul
+              id="menu-items"
+              class="display-none fixed top-0 left-0 z-10 w-full bg-white"
+            >
               <li>
                 <a href="/pages" class={activeNav === "about" ? "active" : ""}>
                   L'institut
