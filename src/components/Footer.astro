@@ -1,5 +1,4 @@
 ---
-import Hr from "./Hr.astro";
 import Socials from "./Socials.astro";
 
 const currentYear = new Date().getFullYear();
@@ -11,7 +10,7 @@ export interface Props {
 const { noMarginTop = false } = Astro.props;
 ---
 
-<footer class={`${noMarginTop ? "" : "mt-auto"}`}>
+<footer class="p mx-4 mt-auto rounded-t-lg md:mx-auto">
   <div class="footer-wrapper">
     <Socials centered />
     <div class="copyright-wrapper font-semibold">
