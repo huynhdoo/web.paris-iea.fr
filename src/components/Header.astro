@@ -38,7 +38,7 @@ const { activeNav } = Astro.props;
           <span
             class="ml-2 hidden font-semibold hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4 sm:inline"
           >
-            Search
+            Recherche
           </span>
         </a>
       </li>
@@ -72,7 +72,7 @@ const { activeNav } = Astro.props;
   </nav>
   <div
     id="navigation"
-    class="display-none fixed top-0 z-20 m-0 -mx-4 h-screen w-full max-w-6xl bg-white p-8 md:rounded-lg md:drop-shadow-lg"
+    class="display-none fixed top-0 z-20 my-4 -mx-4 h-auto w-full max-w-6xl border border-iea-brown bg-white p-4 md:my-10 md:rounded-lg md:drop-shadow-lg"
   >
     <button
       class="focus-outline float-right flex"
@@ -81,60 +81,134 @@ const { activeNav } = Astro.props;
       aria-expanded="true"
       aria-controls="menu-items"
     >
-      <Icon pack="carbon" name="close" class="scale-150" />
+      <Icon pack="carbon" name="close" class="scale-125" />
       <span
         class="ml-2 hidden font-semibold hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4 sm:inline"
-        >Close</span
+        >Fermer</span
       >
     </button>
-    <ul class="grid">
-      <li>
-        <a
-          href="/pages"
-          class="font-semibold hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4"
-        >
-          L'institut
-        </a>
-      </li>
-      <li>
-        <a
-          href="/projects"
-          class="font-semibold hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4"
-        >
-          Projets
-        </a>
-      </li>
-      <li>
-        <a
-          href="/events"
-          class="font-semibold hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4"
-        >
-          Evénements
-        </a>
-      </li>
-      <li>
-        <a
-          href="/publications"
-          class="font-semibold hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4"
-        >
+    <div
+      class="m-10 grid grid-flow-col grid-rows-4 items-center gap-4 gap-y-10 md:grid-rows-2"
+    >
+      <div>
+        <h1 class="text-md mb-4 flex font-bold">
+          <Icon pack="carbon" name="chart-relationship" class="mr-2" />
+          A propos
+        </h1>
+        <div class="flex flex-col gap-y-2">
+          <a
+            href="/institute"
+            class="hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4"
+          >
+            Institut
+          </a>
+          <a
+            href="/policy"
+            class="hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4"
+          >
+            Politique scientifique
+          </a>
+          <a
+            href="/network"
+            class="hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4"
+          >
+            Réseaux académiques
+          </a>
+        </div>
+      </div>
+      <div>
+        <h1 class="text-md mb-2 font-bold">
+          <Icon pack="carbon" name="deployment-pattern" class="mr-1" />
+          Activités
+        </h1>
+        <div class="flex flex-col gap-y-2">
+          <a
+            href="/fellowships"
+            class="hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4"
+          >
+            Résidences
+          </a>
+          <a
+            href="/programs"
+            class="hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4"
+          >
+            Programmes de recherche
+          </a>
+          <a
+            href="/events"
+            class="hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4"
+          >
+            Evénements
+          </a>
+        </div>
+      </div>
+      <div>
+        <h1 class="text-md mb-2 font-bold">
+          <Icon pack="carbon" name="cognitive" class="mr-1" />
+          Membres
+        </h1>
+        <div class="flex flex-col gap-y-2">
+          <a
+            href="/team"
+            class="hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4"
+          >
+            Equipe
+          </a>
+          <a
+            href="/fellows"
+            class="hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4"
+          >
+            Résidents
+          </a>
+          <a
+            href="/members"
+            class="hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4"
+          >
+            Annuaire des membres
+          </a>
+        </div>
+      </div>
+      <div>
+        <h1 class="text-md mb-2 font-bold">
+          <Icon pack="carbon" name="equalizer" class="mr-1" />
           Publications
-        </a>
-      </li>
-    </ul>
+        </h1>
+        <div class="flex flex-col gap-y-2">
+          <a
+            href="/articles"
+            class="hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4"
+          >
+            Articles
+          </a>
+          <a
+            href="/proceedings"
+            class="hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4"
+          >
+            Actes de colloques
+          </a>
+          <a
+            href="/publications"
+            class="hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4"
+          >
+            Catalogue des publications
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <script>
+    // Toggle menu
+    const menuBtn = document.querySelector("#menu");
+    const closeBtn = document.querySelector("#close");
+    const navigation = document.querySelector("#navigation")?.classList;
+
+    menuBtn?.addEventListener("click", function () {
+      navigation?.remove("display-none");
+    });
+
+    closeBtn?.addEventListener("click", function () {
+      navigation?.add("display-none");
+    });
+  </script>
 </header>
-
-<script>
-  // Toggle menu
-  const menuBtn = document.querySelector("#menu");
-  const closeBtn = document.querySelector("#close");
-  const navigation = document.querySelector("#navigation")?.classList;
-
-  menuBtn?.addEventListener("click", function () {
-    navigation?.remove("display-none");
-  });
-
-  closeBtn?.addEventListener("click", function () {
-    navigation?.add("display-none");
-  });
-</script>
