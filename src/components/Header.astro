@@ -29,9 +29,9 @@ const { activeNav } = Astro.props;
   </a>
   <nav
     id="nav-menu"
-    class="float-right my-auto ml-2 flex w-full flex-row items-center justify-end space-x-4 bg-skin-fill py-0"
+    class="float-right my-auto flex w-full flex-row items-center justify-end space-x-4 bg-skin-fill py-0"
   >
-    <ul class="mt-0 flex gap-x-6">
+    <ul class="flex gap-x-6">
       <li>
         <a href="/search" class="flex">
           <Icon pack="carbon" name="search" />
@@ -72,7 +72,7 @@ const { activeNav } = Astro.props;
   </nav>
   <div
     id="navigation"
-    class="display-none fixed top-0 right-0 left-0 z-20 mx-auto h-screen max-w-6xl rounded-lg bg-white p-8 sm:m-4 md:drop-shadow-lg"
+    class="display-none fixed top-0 z-20 m-0 -mx-4 h-screen w-full max-w-6xl bg-white p-8 md:rounded-lg md:drop-shadow-lg"
   >
     <button
       class="focus-outline float-right flex"
