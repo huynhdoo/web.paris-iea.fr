@@ -55,7 +55,7 @@ module.exports = {
         mono: ["IBM Plex Mono", "monospace"],
       },
       colors: {
-        "iea-brown" : "#B48A52",
+        "iea-brown" : "#b48a52",
         "iea-green" : "#6CC7C2",
         "iea-blue" : "#395A74",
       }
