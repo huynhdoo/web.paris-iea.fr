@@ -1,24 +1,23 @@
 ---
 import Datetime from "./Datetime";
 
-const { href, frontmatter, secHeading } = Astro.props
+const { href, frontmatter, secHeading } = Astro.props;
 const { title, pubDatetime, description } = frontmatter;
 ---
-<li class="my-6">
+
+<li class="rounded-lg border-2 border-iea-brown">
   <a
     href={href}
-    class="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
+    class="text-md inline-block w-full bg-iea-brown p-2 font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
   >
-    {secHeading ? (
-      <h2 class="text-lg font-medium decoration-dashed hover:underline">
-        {title}
-      </h2>
-    ) : (
-      <h3 class="text-lg font-medium decoration-dashed hover:underline">
-        {title}
-      </h3>
-    )}
+    {
+      secHeading ? (
+        <h2 class="font-medium decoration-dashed hover:underline">{title}</h2>
+      ) : (
+        <h3 class="font-medium decoration-dashed hover:underline">{title}</h3>
+      )
+    }
   </a>
   {pubDatetime && <Datetime datetime={pubDatetime} />}
-  <p>{description}</p>
+  <p class="p-2">{description}</p>
 </li>

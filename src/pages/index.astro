@@ -18,7 +18,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 
 <Layout>
   <Header />
-  <main class="mx-auto w-full max-w-6xl">
+  <main class="w-full max-w-6xl px-2 sm:mx-auto">
     <img src={meeting} alt="home" />
     <section class="rounded-b-lg border-2 border-t-0 border-iea-brown p-4">
       <p>
@@ -29,9 +29,9 @@ const socialCount = SOCIALS.filter(social => social.active).length;
           class="text-center font-semibold hover:underline hover:decoration-dashed hover:underline-offset-4"
           href="institute"
         >
-          Découvrir l'IEA
-          <Icon pack="carbon" name="arrow-right" />
-        </a>
+          Découvrir l'IEA</a
+        >
+        <Icon pack="carbon" name="arrow-right" />
       </div>
 
       <div class="mt-12 hidden flex-row gap-1">
@@ -61,80 +61,45 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         </a>
       </div>
     </section>
-    <div>
-      <Section
-        icon="event-schedule"
-        title="Evénements"
-        collection="events"
-        more="Tous les événements"
-      />
-      <hr class="border-iea-brown" />
-      <Section
-        icon="document"
-        title="Publications"
-        collection="publications"
-        more="Toutes les publications"
-      />
-      <hr class="border-iea-brown" />
-      <Section
-        icon="gateway-user-access"
-        title="Résidences"
-        collection="scholars"
-        more="Toutes les résidences"
-      />
-      <hr class="border-iea-brown" />
-      <Section
-        icon="media-library"
-        title="Médias"
-        collection="medias"
-        more="Tous les médias"
-      />
-      <hr class="border-iea-brown" />
-      <Section
-        icon="progress-bar"
-        title="Projets"
-        collection="projects"
-        more="Tous les projets"
-      />
-    </div>
+    <Section
+      icon="event-schedule"
+      title="Evénements"
+      collection="events"
+      more="Tous les événements"
+    />
+    <Section
+      icon="document"
+      title="Publications"
+      collection="publications"
+      more="Toutes les publications"
+    />
+    <Section
+      icon="gateway-user-access"
+      title="Résidences"
+      collection="scholars"
+      more="Toutes les résidences"
+    />
+    <Section
+      icon="media-library"
+      title="Médias"
+      collection="medias"
+      more="Tous les médias"
+    />
+    <Section
+      icon="progress-bar"
+      title="Projets"
+      collection="projects"
+      more="Tous les projets"
+    />
   </main>
   <Footer />
 </Layout>
 
 <style>
-  /* ===== Hero Section ===== */
-  #hero {
-    @apply m-4 mx-auto bg-iea-brown py-2 font-semibold;
-  }
-  #hero h1 {
-    @apply inline-block text-xl font-bold sm:my-4 sm:text-2xl;
-  }
-  #hero .rss-link {
-    @apply mt-2 ml-2;
-  }
-  #hero .rss-icon {
-    @apply mb-2 h-6 w-6 scale-110 hover:fill-skin-accent sm:mb-3 sm:scale-125;
-  }
-  #hero p {
-    @apply my-2;
-  }
   .social-wrapper {
     @apply mt-4 flex flex-col sm:flex-row sm:items-center;
   }
   .social-links {
     @apply mr-2 mb-1 whitespace-nowrap sm:mb-0;
-  }
-
-  /* ===== Featured & Recent Posts Sections ===== */
-  #featured,
-  #recent-posts {
-    @apply pt-12 pb-6;
-  }
-  #featured h2,
-  #recent-posts h2 {
-    @apply text-2xl font-semibold tracking-wide;
-  }
-  .all-posts-btn-wrapper {
-    @apply my-8 text-center;
   }
 </style>

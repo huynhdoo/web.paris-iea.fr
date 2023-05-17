@@ -28,7 +28,6 @@
     selection:bg-skin-accent selection:bg-opacity-70 selection:text-skin-inverted;
   }
   header,
-  section,
   footer,
   hr {
     @apply mx-auto max-w-6xl px-4;

@@ -9,11 +9,19 @@ const { icon, title, collection, more } = Astro.props;
 const papers = await getCollection(collection);
 ---
 
-<section>
-  <h2>
-    <Icon pack="carbon" name={icon} class="mb-1" />&nbsp;{title}
+<section class="mt-12">
+  <h2 class="mb-4 text-2xl font-semibold tracking-wide">
+    <Icon pack="carbon" name={icon} class="mb-1" />
+    <a
+      href={`/${collection}`}
+      class="hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4"
+    >
+      {title}</a
+    >
+    <Icon pack="carbon" name="arrow-right" />
   </h2>
-  <ul>
+
+  <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
     {
       papers.map(
         ({ data }, index) =>
@@ -27,27 +35,4 @@ const papers = await getCollection(collection);
       )
     }
   </ul>
-  {
-    more && (
-      <div class="all-papers">
-        <LinkButton href={`/${collection}`}>
-          {more}
-          <svg xmlns="http://www.w3.org/2000/svg">
-            <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z" />
-          </svg>
-        </LinkButton>
-      </div>
-    )
-  }
 </section>
-<style>
-  section {
-    @apply pt-12 pb-6;
-  }
-  h2 {
-    @apply text-2xl font-semibold tracking-wide;
-  }
-  .all-papers {
-    @apply my-8 text-center;
-  }
-</style>

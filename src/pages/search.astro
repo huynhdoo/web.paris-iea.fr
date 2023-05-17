@@ -10,7 +10,7 @@ import { any } from "astro/zod";
 
 // Retrieve all articles
 let searchList = [];
-const collections = ["pages", "events", "scholars", "projects"];
+const collections = ["pages", "events", "scholars", "projects", "publications"];
 
 for (let c in collections) {
   const posts = await getCollection(collections[c], ({ data }) => !data.draft);
