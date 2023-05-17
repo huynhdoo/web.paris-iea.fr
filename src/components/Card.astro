@@ -5,7 +5,6 @@ const { href, frontmatter, secHeading, collection } = Astro.props;
 const { title, pubDatetime, description, image } = frontmatter;
 const cover =
   "https://ik.imagekit.io/2w5ub6jhu/IEA/" + collection + "/" + image;
-const text = description.slice(0, 150) + "...";
 ---
 
 <div>
