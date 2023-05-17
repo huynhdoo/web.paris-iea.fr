@@ -4,6 +4,7 @@ firstname: "Jean"
 lastname: "Decety"
 institution: "Université de Chicago"
 description: "Jean Decety est un neuroscientifique franco-américain. Il est professeur Irving B. Harris de psychologie et de psychiatrie à l'Université de Chicago."
+image: "decety.jpg"
 ---
 
 ## Biographie

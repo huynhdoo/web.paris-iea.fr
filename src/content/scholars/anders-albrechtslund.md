@@ -4,6 +4,7 @@ firstname: "Anders"
 lastname: "Albrechtslund"
 institution: "Université d’Aarhus, Danemark"
 description: "Anders Albrechtslund est professeur en sciences de l'information à l'université d'Aarhus et directeur du Center for Surveillance Studies."
+image: "albrechtslund.jpg"
 ---
 
 ## Biographie

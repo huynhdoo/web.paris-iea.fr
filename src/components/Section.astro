@@ -1,6 +1,5 @@
 ---
 import { getCollection } from "astro:content";
-import LinkButton from "@components/LinkButton.astro";
 import Card from "@components/Card.astro";
 import slugify from "@utils/slugify";
 import { Icon } from "astro-icon";
@@ -19,16 +18,16 @@ const papers = await getCollection(collection);
       {title}</a
     >
   </h2>
-
   <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
     {
       papers.map(
         ({ data }, index) =>
-          index < 3 && (
+          index < 4 && (
             <Card
               href={`/${collection}/${slugify(data)}`}
               frontmatter={data}
               secHeading={false}
+              collection={collection}
             />
           )
       )

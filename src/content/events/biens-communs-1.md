@@ -5,6 +5,7 @@ location: "IEA de Paris 17 quai d'Anjou 75004 Paris"
 contact: "information@paris-iea.fr"
 registration: true
 description: "Ce cycle de cinq rencontres propose de revisiter la notion de biens communs, à l’aune de l’histoire du concept et de ses déclinaisons actuelles dans des sphères du champ intellectuel, économique, et institutionnel."
+image: "biens-communs.jpg"
 ---
 
 Séance de clôture du cycle "Bien(s) commun(s), voies d’espoir face aux défis du siècle" organisé sous la direction de Bettina Laville, présidente de l’IEA. Ce cycle de cinq rencontres propose de revisiter la notion de biens communs, à l’aune de l’histoire du concept et de ses déclinaisons actuelles dans des sphères du champ intellectuel, économique, et institutionnel.

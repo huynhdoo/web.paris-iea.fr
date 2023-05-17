@@ -5,6 +5,7 @@ location: "IEA de Paris 17 quai d'Anjou 75004 Paris"
 contact: "information@paris-iea.fr"
 registration: false
 description: "La compétence universelle permet à des juridictions pénales d’un État de pouvoir juger des faits commis à l’étranger, par des auteurs étrangers sur des victimes étrangères."
+image: "competence-universelle.jpg"
 ---
 
 Journée d'études organisée par Kevin Mariat, Maître de conférences, Université Paris Nanterre, Anne-Laure Chaumette, Professeure, Université Paris Nanterre, et Florence Bellivier, Professeure, Université Paris 1, avec le soutien de l'IEA de Paris, et en partenariat avec le Centre de droit pénal et de criminologie de l’Université Paris Nanterre (EA 3982), le Centre de droit international de l’Université Paris Nanterre (EA382), et l'Institut de recherche juridique de la Sorbonne (EA 4150).

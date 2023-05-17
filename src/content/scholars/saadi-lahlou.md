@@ -4,6 +4,7 @@ firstname: "Saadi"
 lastname: "Lahlou"
 institution: "London School of Economics"
 description: "Saadi Lahlou est titulaire de la chaire de psychologie sociale au département de psychologie sociale de la London School of Economics."
+image: "lahlou.jpg"
 ---
 
 ## Biographie

@@ -1,11 +1,12 @@
 ---
 import Datetime from "./Datetime";
 
-const { href, frontmatter, secHeading } = Astro.props;
-const { title, pubDatetime, description } = frontmatter;
+const { href, frontmatter, secHeading, collection } = Astro.props;
+const { title, pubDatetime, description, image } = frontmatter;
 ---
 
 <li class="rounded-lg border-2 border-iea-brown">
+  {image && <img src={`../assets/${collection}/${image}`} />}
   <a
     href={href}
     class="text-md inline-block w-full bg-iea-brown p-2 font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"

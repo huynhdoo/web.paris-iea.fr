@@ -42,6 +42,7 @@ const publicationsCollection = defineCollection({
     url: z.string(),
     draft: z.boolean().optional(),
     description: z.string().optional(),
+    image: z.string().optional(),
   }),
 });
 
@@ -53,6 +54,7 @@ const scholarsCollection = defineCollection({
     institution: z.string(),
     draft: z.boolean().optional(),
     description: z.string().optional(),
+    image: z.string().optional(),
   }),
 });
 
@@ -65,6 +67,7 @@ const projectsCollection = defineCollection({
     members: z.array(z.string()),
     draft: z.boolean().optional(),
     description: z.string().optional(),
+    image: z.string().optional(),
   }),
 });
 
@@ -77,6 +80,7 @@ const eventsCollection = defineCollection({
     registration: z.boolean(),
     draft: z.boolean().optional(),
     description: z.string().optional(),
+    image: z.string().optional(),
   }),
 });
 
@@ -90,6 +94,7 @@ const mediasCollection = defineCollection({
     links: z.array(z.string()),
     draft: z.boolean().optional(),
     description: z.string().optional(),
+    image: z.string().optional(),
   }),
 });
 
