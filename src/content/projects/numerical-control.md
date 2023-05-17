@@ -5,6 +5,7 @@ end: "30 juin 2023"
 disciplines: ["Sciences de l'information et de la communication"]
 members: ["anders-albrechtslund"]
 description: "La surveillance est omniprésente dans les sociétés contemporaines, à cause notamment de l'accumulation des données et de l'intelligence artificielle (IA) sous la forme de décisions algorithmiques, de systèmes automatisés de reconnaissance faciale, de dispositifs de suivi et de détection, et de technologies de soins de santé avancées."
+image: "numerical-control.jpg"
 ---
 
 ## Projet de recherche

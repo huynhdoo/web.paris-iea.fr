@@ -5,6 +5,7 @@ end: "30 juin 2021"
 disciplines: ["Neurosciences"]
 members: ["jean-decety"]
 description: "Lorsque les études interdisciplinaires intègrent des approches issues des sciences sociales et des sciences biologiques, elles élargissent considérablement nos connaissances théoriques."
+image: "social-neurosciences.jpg"
 ---
 
 ## Projet de recherche

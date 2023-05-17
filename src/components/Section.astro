@@ -4,7 +4,7 @@ import Card from "@components/Card.astro";
 import slugify from "@utils/slugify";
 import { Icon } from "astro-icon";
 
-const { icon, title, collection, more } = Astro.props;
+const { icon, title, collection, colmin, colmax, more } = Astro.props;
 const papers = await getCollection(collection);
 ---
 
@@ -18,7 +18,7 @@ const papers = await getCollection(collection);
       {title}</a
     >
   </h2>
-  <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
+  <ul class={`grid grid-cols-${colmin} gap-4 md:grid-cols-${colmax}`}>
     {
       papers.map(
         ({ data }, index) =>

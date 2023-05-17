@@ -6,6 +6,7 @@ type: "video"
 url: "https://youtu.be/DczM6zLwPE4"
 links: ["events/semaine-du-cerveau", "scholars/jean-decety"]
 description: "Les humains sont une espèce intensément sociale. Notre héritage évolutif se manifeste dans de nombreux comportements comme dans la coopération et les préférences sociales par exemple."
+image: "cerveau-social.jpg"
 ---
 
 Les humains sont une espèce intensément sociale. Notre héritage évolutif se manifeste dans de nombreux comportements comme dans la coopération et les préférences sociales par exemple.

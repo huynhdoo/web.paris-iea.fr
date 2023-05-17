@@ -3,22 +3,31 @@ import Datetime from "./Datetime";
 
 const { href, frontmatter, secHeading, collection } = Astro.props;
 const { title, pubDatetime, description, image } = frontmatter;
+const cover =
+  "https://ik.imagekit.io/2w5ub6jhu/IEA/" + collection + "/" + image;
+const text = description.slice(0, 150) + "...";
 ---
 
-<li class="rounded-lg border-2 border-iea-brown">
-  {image && <img src={`../assets/${collection}/${image}`} />}
-  <a
-    href={href}
-    class="text-md inline-block w-full bg-iea-brown p-2 font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
+<div>
+  <li
+    class="box-border h-96 overflow-hidden rounded-b-lg border-2 border-iea-brown hover:bg-skin-card"
   >
-    {
-      secHeading ? (
-        <h2 class="font-medium decoration-dashed hover:underline">{title}</h2>
-      ) : (
-        <h3 class="font-medium decoration-dashed hover:underline">{title}</h3>
-      )
-    }
-  </a>
-  {pubDatetime && <Datetime datetime={pubDatetime} />}
-  <p class="p-2">{description}</p>
-</li>
+    <a
+      href={href}
+      class="text-md inline-block h-32 w-full font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
+    >
+      {
+        image && (
+          <div
+            class="-mt-px -ml-px -mr-px h-48 w-auto bg-cover bg-center"
+            style={`background-image: url('${cover}')`}
+          />
+        )
+      }
+      <div class="h-auto p-2">
+        <h2 class="text-xs font-medium uppercase sm:text-sm">{title}</h2>
+        <p class="text-xs font-light sm:text-sm">{description}</p>
+      </div>
+    </a>
+  </li>
+</div>

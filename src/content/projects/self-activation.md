@@ -5,6 +5,7 @@ end: "24 décembre 2014"
 disciplines: ["Psychologie"]
 members: ["saadi-lahlou"]
 description: "Quel aspect de nous-même activons à un moment donné ? Quelles sont les influences du contexte et de la situation sur le rôle que nous endossons, sur notre comportement ? Par exemple, quand, et pourquoi, une personne se sent (ou agit) en tant qu’«obèse »?"
+image: "self-activation.jpg"
 ---
 
 ## Projet de recherche

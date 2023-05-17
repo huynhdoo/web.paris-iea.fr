@@ -5,7 +5,7 @@ location: "IEA de Paris 17 quai d'Anjou 75004 Paris"
 contact: "information@paris-iea.fr"
 registration: false
 description: "Les humains sont une espèce intensément sociale. Notre héritage évolutif se manifeste dans de nombreux comportements comme dans la coopération et les préférences sociales par exemple."
-image: "semaine-du-cerveau.md"
+image: "semaine-du-cerveau.jpg"
 ---
 
 Conférence de Jean Decety, professeur de psychologie et de psychiatrie à l'Université de Chicago, ancien chercheur-résident de l'IEA de Paris, dans le cadre de la Semaine du cerveau 2023.

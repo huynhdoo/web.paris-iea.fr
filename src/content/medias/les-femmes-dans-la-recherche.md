@@ -6,6 +6,7 @@ type: "video"
 url: "https://youtu.be/9iMtp9nTruU"
 links: ["events/semaine-du-cerveau", "scholars/jean-decety"]
 description: "Une table ronde pour discuter des défis et opportunités que rencontrent les femmes dans la recherche scientifique contemporaine. Elle réunit des chercheuses nationales et internationales de différentes disciplines venues partager leurs expériences et nourrir la discussion."
+image: "femmes-recherche.jpg"
 ---
 
 Table ronde organisée par la Mairie de Paris Centre et l'IEA de Paris, à l’occasion des célébrations autour de la journée internationale des droits des femmes.
