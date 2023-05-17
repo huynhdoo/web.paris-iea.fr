@@ -19,7 +19,7 @@ const papers = await getCollection(collection);
     >
   </h2>
 
-  <ul class={`grid grid-cols-${colmin} gap-4 md:grid-cols-${colmax}`}>
+  <ul class={`grid grid-cols-${colmin} gap-4 sm:grid-cols-${colmax}`}>
     {
       papers.map(
         ({ data }, index) =>
