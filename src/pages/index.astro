@@ -9,8 +9,9 @@ import { SOCIALS } from "@config";
 const splash = "https://ik.imagekit.io/2w5ub6jhu/IEA/home/meeting.jpg";
 import { Icon } from "astro-icon";
 const title = "Institut d'Etudes Avancées de Paris";
+const baseline = "Comprendre et transformer collectivement le monde";
 const description =
-  "L’institut d’études avancées de Paris est un centre de recherche en sciences humaines et sociales, humanités et (neuro)sciences cognitives.";
+  "L’institut d’études avancées de Paris est un centre de recherche en sciences humaines et sociales, humanités et (neuro)sciences cognitives, partenaire des principaux établissements parisiens et franciliens d’enseignement supérieur et de recherche.";
 
 const socialCount = SOCIALS.filter(social => social.active).length;
 ---
@@ -18,86 +19,51 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 <Layout>
   <Header />
   <main class="w-full max-w-6xl px-2 sm:mx-auto">
-    <img src={splash} alt="home" />
-    <section class="rounded-b-lg border-2 border-t-0 border-iea-brown p-4">
-      <p>
-        {description}
-      </p>
-      <div class="text-center">
-        <a
-          class="text-center font-semibold hover:underline hover:decoration-dashed hover:underline-offset-4"
-          href="institute"
-        >
-          Découvrir l'IEA</a
-        >
-        <Icon pack="carbon" name="arrow-right" />
-      </div>
-
-      <div class="mt-12 hidden flex-row gap-1">
-        {
-          // only display if at least one social link is enabled
-          socialCount > 0 && (
-            <>
-              <div>Nos réseaux sociaux :</div>
-              <Socials />
-            </>
-          )
-        }
-        <a
-          target="_blank"
-          href="/rss.xml"
-          class="rss-link"
-          aria-label="rss feed"
-          title="RSS Feed"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
-            ><path
-              d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-            ></path><path
-              d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
-            ></path><circle cx="6" cy="18" r="2"></circle>
-          </svg>
-        </a>
-      </div>
-    </section>
+    <a href="institute" class="text-skin-accent">
+      <section
+        class="rounded-b-lg border-2 border-iea-brown hover:bg-skin-card"
+      >
+        <div>
+          <div class="overflow-hidden sm:h-96">
+            <img class="h-full w-full object-cover" src={splash} alt="home" />
+          </div>
+          <div class="p-4 text-sm sm:text-center sm:text-lg">
+            <h2 class="font-medium uppercase">{baseline}</h2>
+            <p class="font-light sm:mx-auto">
+              {description}
+            </p>
+          </div>
+        </div>
+      </section>
+    </a>
     <Section
       icon="event-schedule"
       title="Evénements"
       collection="events"
-      colmin="2"
-      colmax="3"
       more="Tous les événements"
     />
     <Section
       icon="document"
       title="Publications"
       collection="publications"
-      colmin="2"
-      colmax="4"
       more="Toutes les publications"
     />
     <Section
       icon="gateway-user-access"
       title="Résidences"
       collection="scholars"
-      colmin="2"
-      colmax="4"
       more="Toutes les résidences"
     />
     <Section
       icon="media-library"
       title="Médias"
       collection="medias"
-      colmin="2"
-      colmax="4"
       more="Tous les médias"
     />
     <Section
       icon="progress-bar"
       title="Projets"
       collection="projects"
-      colmin="2"
-      colmax="3"
       more="Tous les projets"
     />
   </main>
