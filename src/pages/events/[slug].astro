@@ -1,8 +1,11 @@
 ---
 import { CollectionEntry, getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
 import Details from "@layouts/events/Details.astro";
-import List from "@layouts/events/List.astro";
-import getSortedPosts from "@utils/getSortedPosts";
+import List from "@components/List.astro";
+import getSortedItems from "@utils/getSortedItems";
 import getPageNumbers from "@utils/getPageNumbers";
 import slugify from "@utils/slugify";
 import { SITE } from "@config";
@@ -29,11 +32,12 @@ const { slug } = Astro.params;
 const { post } = Astro.props;
 
 const collection = "events";
-const title = "Les évènements";
+const icon = "event-schedule";
+const title = "événements";
 
-const posts = await getCollection(collection);
-const sortedPosts = getSortedPosts(posts);
-const totalPages = getPageNumbers(sortedPosts.length);
+const items = await getCollection(collection);
+const sortedItems = getSortedItems(items);
+const totalPages = getPageNumbers(sortedItems.length);
 
 const currentPage =
   slug && !isNaN(Number(slug)) && totalPages.includes(Number(slug))
@@ -42,19 +46,26 @@ const currentPage =
 const lastPost = currentPage * SITE.postPerPage;
 const startPost = lastPost - SITE.postPerPage;
 
-const paginatedPosts = sortedPosts.slice(startPost, lastPost);
+const paginatedItems = sortedItems.slice(startPost, lastPost);
 ---
 
-{
-  post ? (
-    <Details post={post} />
-  ) : (
-    <List
-      posts={paginatedPosts}
-      title={title}
-      collection={collection}
-      pageNum={currentPage}
-      totalPages={totalPages.length}
-    />
-  )
-}
+<Layout>
+  <Header />
+  <main class="w-full max-w-6xl px-2 lg:mx-auto">
+    {
+      post ? (
+        <Details post={post} />
+      ) : (
+        <List
+          items={paginatedItems}
+          icon={icon}
+          title={title}
+          collection={collection}
+          pageNum={currentPage}
+          totalPages={totalPages.length}
+        />
+      )
+    }
+  </main>
+  <Footer />
+</Layout>

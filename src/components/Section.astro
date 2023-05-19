@@ -5,7 +5,7 @@ import slugify from "@utils/slugify";
 import { Icon } from "astro-icon";
 
 const { icon, title, collection, more } = Astro.props;
-const papers = await getCollection(collection);
+const items = await getCollection(collection);
 ---
 
 <section class="mt-12">
@@ -21,7 +21,7 @@ const papers = await getCollection(collection);
 
   <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
     {
-      papers.map(
+      items.map(
         ({ data }, index) =>
           index < 4 && (
             <Card

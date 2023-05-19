@@ -1,0 +1,32 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+import { getCollection } from "astro:content";
+import Details from "@components/Details.astro";
+import slugify from "@utils/slugify";
+
+export async function getStaticPaths() {
+  const collections = ["events", "publications"];
+  const items = await collections.map(collection =>
+    getCollection(collection, ({ data }) => !data.draft)
+  );
+  console.log(items);
+  return items.map(item => ({
+    params: { collection: "events", slug: slugify(item.data) },
+    props: { item },
+  }));
+}
+
+const { collection, slug } = Astro.params;
+const { item } = Astro.props;
+---
+
+<Layout>
+  <Header />
+  <main class="w-full max-w-6xl px-2 lg:mx-auto">
+    <Details collection={collection} item={item} />
+  </main>
+  <Footer />
+</Layout>

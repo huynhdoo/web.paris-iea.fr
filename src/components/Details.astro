@@ -1,0 +1,26 @@
+---
+const { collection, item } = Astro.props;
+const { title, description, image } = item.data;
+const { Content } = await item.render();
+const cover =
+  "https://ik.imagekit.io/2w5ub6jhu/IEA/" + collection + "/" + image;
+---
+
+<div class="mx-auto mt-8 max-w-3xl">
+  <div class="h-36 overflow-hidden md:h-48 lg:h-72">
+    <img class="w-full object-cover" src={cover} alt="home" />
+  </div>
+  <h1 class="mt-6 text-sm font-light">
+    <a
+      href={`/${collection}`}
+      class="hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4"
+    >
+      {collection}</a
+    >
+  </h1>
+  <article role="article" class="prose mx-auto max-w-3xl text-xs sm:text-sm">
+    <h2 class="mt-0 text-2xl font-bold uppercase">{title}</h2>
+    <p>{description}</p>
+    <Content />
+  </article>
+</div>

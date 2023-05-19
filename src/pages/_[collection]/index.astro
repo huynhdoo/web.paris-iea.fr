@@ -4,14 +4,19 @@ import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import List from "@components/List.astro";
+import { getCollection } from "astro:content";
 import getSortedItems from "@utils/getSortedItems";
 import getPageNumbers from "@utils/getPageNumbers";
 
-import { getCollection } from "astro:content";
+export function getStaticPaths() {
+  return [
+    { params: { collection: "events" } },
+    { params: { collection: "test" } },
+  ];
+}
 
-const collection = "events";
-const icon = "event-schedule";
-const title = "événements";
+const { collection } = Astro.params;
+const title = "Les projets";
 const items = await getCollection(collection);
 const sortedItems = getSortedItems(items);
 const totalPages = getPageNumbers(sortedItems.length);
@@ -23,7 +28,6 @@ const paginatedItems = sortedItems.slice(0, SITE.postPerPage);
   <main class="w-full max-w-6xl px-2 lg:mx-auto">
     <List
       items={paginatedItems}
-      icon={icon}
       title={title}
       collection={collection}
       pageNum={1}
