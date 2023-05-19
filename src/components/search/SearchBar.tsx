@@ -85,7 +85,7 @@ export default function SearchBar({ searchList }: Props) {
         border-opacity-40 bg-skin-fill py-3 pl-10
         pr-3 placeholder:italic placeholder:text-opacity-75 
         focus:border-skin-accent focus:outline-none"
-          placeholder="Rechercher un document..."
+          placeholder="Evénement, publication, résident, média, ..."
           type="text"
           name="search"
           value={inputVal}
@@ -111,6 +111,7 @@ export default function SearchBar({ searchList }: Props) {
           searchResults.map(({ item, refIndex }) => (
             <SearchCard
               href={`/${item.collection}/${slugify(item.data)}`}
+              collection={item.collection}
               frontmatter={item.data}
               key={`${refIndex}-${slugify(item.data)}`}
             />

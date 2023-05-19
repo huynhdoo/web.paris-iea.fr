@@ -5,12 +5,20 @@ import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
+import { Icon } from "astro-icon";
 import SearchBar from "@components/search/SearchBar";
 import { any } from "astro/zod";
 
 // Retrieve all articles
 let searchList = [];
-const collections = ["pages", "events", "scholars", "projects", "publications"];
+const collections = [
+  "pages",
+  "events",
+  "scholars",
+  "projects",
+  "publications",
+  "medias",
+];
 
 for (let c in collections) {
   const posts = await getCollection(collections[c], ({ data }) => !data.draft);
@@ -26,9 +34,12 @@ for (let c in collections) {
 ---
 
 <Layout title={`Recherche | ${SITE.title}`}>
-  <Header activeNav="search" />
-  <Main pageTitle="Recherche" pageDesc="Rechercher un document...">
+  <Header />
+  <div class="mx-auto mt-8 w-full max-w-3xl p-2">
+    <h2 class="mb-4 text-lg font-semibold uppercase sm:text-xl lg:text-2xl">
+      Recherche
+    </h2>
     <SearchBar client:load searchList={searchList} />
-  </Main>
+  </div>
   <Footer />
 </Layout>
