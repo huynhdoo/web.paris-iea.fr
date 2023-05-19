@@ -2,12 +2,9 @@
 import { getCollection } from "astro:content";
 import { SITE } from "@config";
 import Layout from "@layouts/Layout.astro";
-import Main from "@layouts/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import { Icon } from "astro-icon";
 import SearchBar from "@components/search/SearchBar";
-import { any } from "astro/zod";
 
 // Retrieve all articles
 let searchList = [];
@@ -22,10 +19,11 @@ const collections = [
 
 for (let c in collections) {
   const posts = await getCollection(collections[c], ({ data }) => !data.draft);
-  posts.map(({ data }) =>
+  posts.map(({ body, data }) =>
     searchList.push({
       title: data.title,
       description: data.description,
+      body: body,
       collection: collections[c],
       data,
     })

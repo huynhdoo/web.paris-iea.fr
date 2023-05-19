@@ -10,6 +10,7 @@ export type SearchItem = {
   title: string;
   description: string;
   collection: string;
+  body: string;
   data: searchFrontmatter;
 };
 
@@ -34,7 +35,7 @@ export default function SearchBar({ searchList }: Props) {
   };
 
   const fuse = new Fuse(searchList, {
-    keys: ["title", "description"],
+    keys: ["title", "description", "body"],
     includeMatches: true,
     minMatchCharLength: 2,
     threshold: 0.5,
@@ -98,11 +99,11 @@ export default function SearchBar({ searchList }: Props) {
 
       {inputVal.length > 1 && (
         <div className="mt-8">
-          Found {searchResults?.length}
+          {searchResults?.length}
           {searchResults?.length && searchResults?.length === 1
-            ? " result"
-            : " results"}{" "}
-          for '{inputVal}'
+            ? " résultat"
+            : " résultats"}{" "}
+          pour '{inputVal}'
         </div>
       )}
 

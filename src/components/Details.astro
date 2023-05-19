@@ -6,13 +6,14 @@ const { title, description, image } = item.data;
 const { Content } = await item.render();
 const cover =
   "https://ik.imagekit.io/2w5ub6jhu/IEA/" + collection + "/" + image;
+console.log(item);
 ---
 
 <div class="mx-auto mt-8 max-w-3xl">
   <h1 class="mb-2 text-sm font-light capitalize">
     <Icon pack="carbon" name={icon} class="mb-1" />
     <a
-      href={`/${collection}`}
+      href={`/${item.collection}`}
       class="hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4"
     >
       {type}</a
