@@ -3,7 +3,7 @@ import { CollectionEntry, getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import Details from "@layouts/events/Details.astro";
+import Details from "@components/Details.astro";
 import List from "@components/List.astro";
 import getSortedItems from "@utils/getSortedItems";
 import getPageNumbers from "@utils/getPageNumbers";
@@ -11,29 +11,30 @@ import slugify from "@utils/slugify";
 import { SITE } from "@config";
 
 export interface Props {
-  post: CollectionEntry<"events">;
+  item: CollectionEntry<"events">;
 }
 
 export async function getStaticPaths() {
-  const posts = await getCollection("events", ({ data }) => !data.draft);
-  const postResult = posts.map(post => ({
-    params: { slug: slugify(post.data) },
-    props: { post },
+  const items = await getCollection("events", ({ data }) => !data.draft);
+  const itemResult = items.map(item => ({
+    params: { slug: slugify(item.data) },
+    props: { item },
   }));
 
-  const pagePaths = getPageNumbers(posts.length).map(pageNum => ({
+  const pagePaths = getPageNumbers(items.length).map(pageNum => ({
     params: { slug: String(pageNum) },
   }));
 
-  return [...postResult, ...pagePaths];
+  return [...itemResult, ...pagePaths];
 }
 
 const { slug } = Astro.params;
-const { post } = Astro.props;
+const { item } = Astro.props;
 
 const collection = "events";
 const icon = "event-schedule";
 const title = "événements";
+const type = "événement";
 
 const items = await getCollection(collection);
 const sortedItems = getSortedItems(items);
@@ -53,8 +54,8 @@ const paginatedItems = sortedItems.slice(startPost, lastPost);
   <Header />
   <main class="w-full max-w-6xl px-2 lg:mx-auto">
     {
-      post ? (
-        <Details post={post} />
+      item ? (
+        <Details icon={icon} type={type} collection={collection} item={item} />
       ) : (
         <List
           items={paginatedItems}
