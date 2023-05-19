@@ -1,0 +1,19 @@
+---
+const { link, image, baseline, description } = Astro.props;
+---
+
+<a href={link} class="text-skin-accent">
+  <section class="rounded-b-lg border-2 border-iea-brown hover:bg-skin-card">
+    <div>
+      <div class="overflow-hidden sm:h-96">
+        <img class="h-full w-full object-cover" src={image} alt="home" />
+      </div>
+      <div class="p-4 text-sm sm:text-center sm:text-lg">
+        <h2 class="font-medium uppercase">{baseline}</h2>
+        <p class="font-light sm:mx-auto">
+          {description}
+        </p>
+      </div>
+    </div>
+  </section>
+</a>

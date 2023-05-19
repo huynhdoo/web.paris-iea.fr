@@ -9,9 +9,7 @@ const papers = await getCollection(collection);
 ---
 
 <section class="mt-12">
-  <h2
-    class="mb-4 text-center text-2xl font-semibold tracking-wide sm:text-3xl md:text-4xl"
-  >
+  <h2 class="mb-4 text-lg font-semibold uppercase sm:text-xl lg:text-2xl">
     <Icon pack="carbon" name={icon} class="mb-1" />
     <a
       href={`/${collection}`}
@@ -21,7 +19,7 @@ const papers = await getCollection(collection);
     >
   </h2>
 
-  <ul class={`grid grid-cols-1 sm:grid-cols-2 gap-4 lg:grid-cols-4`}>
+  <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
     {
       papers.map(
         ({ data }, index) =>

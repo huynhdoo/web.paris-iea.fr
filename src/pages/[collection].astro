@@ -1,0 +1,11 @@
+---
+export function getStaticPaths() {
+  return [
+    { params: { collection: "events" } },
+    { params: { collection: "test" } },
+  ];
+}
+const { collection } = Astro.params;
+---
+
+<h1>{collection}</h1>
