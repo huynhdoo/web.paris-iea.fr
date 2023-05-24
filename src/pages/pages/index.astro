@@ -1,22 +1,35 @@
 ---
 import { SITE } from "@config";
-import List from "@layouts/pages/List.astro";
-import getSortedPosts from "@utils/getSortedPosts";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import List from "@components/List.astro";
+import getSortedItems from "@utils/getSortedItems";
 import getPageNumbers from "@utils/getPageNumbers";
 
 import { getCollection } from "astro:content";
 
-const collection = "pages"
-const title = "Les pages"
-const posts = await getCollection(collection);
-const sortedPosts = getSortedPosts(posts);
-const totalPages = getPageNumbers(sortedPosts.length);
-const paginatedPosts = sortedPosts.slice(0, SITE.postPerPage);
+const collection = "pages";
+const icon = "progress-bar";
+const title = "Pages";
+
+const items = await getCollection(collection);
+const sortedItems = getSortedItems(items);
+const totalPages = getPageNumbers(sortedItems.length);
+const paginatedItems = sortedItems.slice(0, SITE.postPerPage);
 ---
-<List 
-    posts={paginatedPosts} 
-    title={title} 
-    collection={collection} 
-    pageNum={1} 
-    totalPages={totalPages.length} 
-/>
+
+<Layout>
+  <Header />
+  <main class="w-full max-w-6xl px-2 lg:mx-auto">
+    <List
+      items={paginatedItems}
+      icon={icon}
+      title={title}
+      collection={collection}
+      pageNum={1}
+      totalPages={totalPages.length}
+    />
+  </main>
+  <Footer />
+</Layout>

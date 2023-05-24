@@ -23,7 +23,7 @@ const next = pageNum < totalPages ? "" : "disabled";
     {
       items.map(
         ({ data }, index) =>
-          index < 4 && (
+          index <= 4 && (
             <Card
               href={`/${collection}/${slugify(data)}`}
               frontmatter={data}
@@ -39,9 +39,7 @@ const next = pageNum < totalPages ? "" : "disabled";
       <nav class="pagination-wrapper" aria-label="Pagination">
         <LinkButton
           disabled={prev === "disabled"}
-          href={`/${collection}/${
-            pageNum - 1 !== 1 ? "/" + (pageNum - 1) : ""
-          }`}
+          href={`/${collection}/${pageNum - 1 !== 1 ? pageNum - 1 : ""}`}
           className={`mr-4 select-none ${prev}`}
           ariaLabel="Previous"
         >
