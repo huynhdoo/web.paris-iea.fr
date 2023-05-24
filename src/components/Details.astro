@@ -9,7 +9,7 @@ const cover =
 console.log(item);
 ---
 
-<div class="mx-auto mt-8 max-w-3xl">
+<div class="mx-auto mt-8 max-w-3xl space-y-4">
   <h1 class="mb-2 text-sm font-light capitalize">
     <Icon pack="carbon" name={icon} class="mb-1" />
     <a
@@ -19,12 +19,16 @@ console.log(item);
       {type}</a
     >
   </h1>
-  <div class="my-6 h-36 overflow-hidden md:h-48 lg:h-72">
-    <img class="w-full object-cover" src={cover} alt="home" />
+  <h2 class="mt-0 text-2xl font-bold uppercase">{title}</h2>
+  <div>
+    <img
+      class="lg:h:64 float-left mb-2 mr-2 h-36 overflow-hidden object-cover md:mb-4 md:mr-4 md:h-48"
+      src={cover}
+      alt={title}
+    />
+    <p class="text-sm italic">{description}</p>
   </div>
   <article role="article" class="prose mx-auto max-w-3xl text-xs sm:text-sm">
-    <h2 class="mt-0 text-2xl font-bold uppercase">{title}</h2>
-    <p>{description}</p>
     <Content />
   </article>
 </div>
