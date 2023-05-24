@@ -13,66 +13,68 @@ export interface Props {
 const { activeNav } = Astro.props;
 ---
 
-<header class="flex w-full items-start justify-between p-4">
-  <a href="/" class="w-20 md:w-32">
-    {
-      LOGO_IMAGE.enable ? (
-        <img
-          src={LOGO_IMAGE.svg ? logoSVG : logoPNG}
-          alt="Paris IEA Logo"
-          class="w-20 md:w-32"
-        />
-      ) : (
-        SITE.title
-      )
-    }
-  </a>
-  <nav
-    id="nav-menu"
-    class="float-right my-auto flex w-full flex-row items-center justify-end space-x-4 bg-skin-fill py-0"
-  >
-    <ul class="flex gap-x-6">
-      <li>
-        <a href="/search" class="flex">
-          <Icon pack="carbon" name="search" />
-          <span
-            class="ml-2 hidden font-semibold hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4 sm:inline"
+<header class="w-full items-start justify-between">
+  <div class="flex p-4">
+    <a href="/" class="w-20 md:w-32">
+      {
+        LOGO_IMAGE.enable ? (
+          <img
+            src={LOGO_IMAGE.svg ? logoSVG : logoPNG}
+            alt="Paris IEA Logo"
+            class="w-20 md:w-32"
+          />
+        ) : (
+          SITE.title
+        )
+      }
+    </a>
+    <nav
+      id="nav-menu"
+      class="float-right my-auto flex w-full flex-row items-center justify-end space-x-4 bg-skin-fill py-0"
+    >
+      <ul class="flex gap-x-6">
+        <li>
+          <a href="/search" class="flex">
+            <Icon pack="carbon" name="search" />
+            <span
+              class="ml-2 hidden font-semibold hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4 sm:inline"
+            >
+              Recherche
+            </span>
+          </a>
+        </li>
+        <li>
+          <button class="focus-outline flex" id="theme-btn">
+            <Icon pack="carbon" name="contrast" />
+            <span
+              class="ml-2 hidden font-semibold hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4 sm:inline"
+            >
+              Mode
+            </span>
+          </button>
+        </li>
+        <li>
+          <button
+            class="focus-outline flex"
+            id="menu"
+            aria-label="Open Menu"
+            aria-expanded="false"
+            aria-controls="menu-items"
           >
-            Recherche
-          </span>
-        </a>
-      </li>
-      <li>
-        <button class="focus-outline flex" id="theme-btn">
-          <Icon pack="carbon" name="contrast" />
-          <span
-            class="ml-2 hidden font-semibold hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4 sm:inline"
-          >
-            Mode
-          </span>
-        </button>
-      </li>
-      <li>
-        <button
-          class="focus-outline flex"
-          id="menu"
-          aria-label="Open Menu"
-          aria-expanded="false"
-          aria-controls="menu-items"
-        >
-          <Icon pack="carbon" name="book" />
-          <span
-            class="ml-2 hidden font-semibold hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4 sm:inline"
-          >
-            Menu
-          </span>
-        </button>
-      </li>
-    </ul>
-  </nav>
+            <Icon pack="carbon" name="book" />
+            <span
+              class="ml-2 hidden font-semibold hover:underline hover:decoration-dashed hover:decoration-2 hover:underline-offset-4 sm:inline"
+            >
+              Menu
+            </span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
   <div
     id="navigation"
-    class="display-none absolute z-20 -mx-4 w-full max-w-6xl border border-iea-brown bg-skin-fill p-4 md:mt-6 md:rounded-lg md:drop-shadow-lg"
+    class="display-none absolute top-0 z-20 -mx-4 w-full max-w-6xl border border-iea-brown bg-skin-fill p-8 md:mt-4 md:rounded-lg md:pt-10 md:drop-shadow-lg"
   >
     <button
       class="focus-outline float-right flex"
